@@ -14,6 +14,9 @@ class Aviatrix {
     var running = false
     var data = AviatrixData()
     var location = "St. Louis"
+    var distanceTraveled = 0
+    var fuelLevel = 5000
+    
     
     init (authorName : String) {
         author = authorName
@@ -28,9 +31,11 @@ class Aviatrix {
         
     }
     
-    func flyTo(destination : String) {
+    
+    func flyTo(destination : String) -> String {
+        distanceTraveled += distanceTo(target: destination)
         location = destination
-        
+        return location
     }
     
     func distanceTo(target : String) -> Int {
